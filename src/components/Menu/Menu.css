@@ -1,0 +1,12 @@
+.menu {
+    border: 0px dashed purple;
+    padding-left: 0px;
+    margin-left: 0px;
+    padding: 0px 80px;
+    font-size: 1.4em;
+}
+
+.menuItem {
+    display: inline-block;
+    margin: 0px 10px;
+}

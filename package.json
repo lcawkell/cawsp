@@ -1,0 +1,79 @@
+{
+  "name": "cawsp",
+  "version": "0.0.1",
+  "description": "cawsp.com website",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server",
+    "release": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcawkell/cawsp.git"
+  },
+  "author": "Lucas Cawkell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcawkell/cawsp/issues"
+  },
+  "homepage": "https://github.com/lcawkell/cawsp#readme",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.git/"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "connect-history-api-fallback": "^1.5.0",
+    "express-history-api-fallback": "^2.2.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/jest": "^22.2.3",
+    "@types/react": "^16.3.14",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-router": "^4.0.25",
+    "@types/react-router-dom": "^4.2.6",
+    "awesome-typescript-loader": "^5.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "express": "^4.16.3",
+    "isomorphic-style-loader": "^4.0.0",
+    "jest": "^22.4.3",
+    "jest-css-modules": "^1.1.0",
+    "path": "^0.12.7",
+    "react-test-renderer": "^16.3.2",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "ts-jest": "^22.4.6",
+    "ts-loader": "^4.3.0",
+    "typescript": "^2.8.3",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
