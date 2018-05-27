@@ -113,7 +113,7 @@ export default class WordScramble extends React.Component<WordScrambleProps, Wor
     render() {
 
         let random = Math.floor(Math.random()*3);
-        let chosen;
+        let chosen; 
 
         switch(random) {
             case 0:
