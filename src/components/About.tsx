@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Layout from '../components/Layout';
 
 export interface AboutProps {
 }
@@ -6,19 +7,21 @@ export interface AboutProps {
 export interface AboutState {
 }
 
-export default class About extends React.Component<AboutProps, AboutState> {
-  constructor(props: AboutProps) {
-    super(props);
+class About extends React.Component<AboutProps, AboutState> {
+    constructor(props: AboutProps) {
+        super(props);
 
         this.state = {
+        }
     }
-  }
 
-  render() {
-    return (
-      <div>
-        About page
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                About page
+            </div>
+        );
+    }
 }
+
+export default Layout(About);

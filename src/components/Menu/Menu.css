@@ -9,4 +9,63 @@
 .menuItem {
     display: inline-block;
     margin: 0px 10px;
+    cursor: pointer;
+}
+
+.menuItemLink {
+    font-size: 1em;
+    text-decoration: none;
+    position: relative;
+    font-family: Arial;
+    padding: 3px 3px 3px 3px;
+    color: #fff;
+}
+
+.menuItemLink:before {
+    position:absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    background-color: #0EC3E4;
+    content:'';
+    transition: all .2s;
+}
+
+.menuItemLink:hover:before {
+    position:absolute;
+    bottom: -1px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #0EC3E4;
+    content:'';
+    transition: all .2s;
+}
+
+@media(max-width: 650px) {
+    .menu {
+        height: 0px;
+        overflow: hidden;
+        transition: all .3s;
+        position: absolute;
+        width: 100%;
+        box-shadow: 1px 1px 7px #ccc;
+        left:0px;
+        top: 70px;
+        z-index: 1000;
+        padding: 0;
+        margin:0px;
+        background: rgb(0,0,0,.85);
+    }
+
+    .menuItem {
+        display: block;
+        width: 100%;
+        margin: -1px 0px 0px 0px;
+        padding: 15px 10px;
+        margin: 10px 0px;
+        text-align: center;
+        font-size: 1.5em;
+    }
 }

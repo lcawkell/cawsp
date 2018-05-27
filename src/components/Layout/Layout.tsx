@@ -1,63 +1,59 @@
 import * as React from 'react';
+import * as styles from './Layout.css';
 
 import Logo from '../Logo';
 //import Menu, { MenuItem } from '../Menu';
 import Menu, { MenuItem } from '../Menu';
+import MobileMenu from '../MobileMenu';
 
 export interface LayoutProps {
+    history:any
 }
 
 export default function Layout(ChildComponent:any){
-    return function WrappingLayout (props: LayoutProps) {
+    return class WrappingLayout extends React.Component <LayoutProps, any> {
 
-        let styles = {
-            flexGrid: {
-                display: 'flex' as 'flex',
-                border: '0px solid blue',
-                justifyContent: 'space-between'
-            },
-            heading: {
-                borderBottom: '2px solid #fff',
-                position: 'relative' as 'relative',
-                background: '#000',
-                color: '#fff'     
-            },
-            column: {
+        constructor(props:LayoutProps) {
+            super(props);
 
-            }
+            this.state = {
+                menuOpen: false
+            };
         }
 
-        return (
-            <div>
-                <div id='heading' style={{...styles.flexGrid, ...styles.heading}}>
-    
-                    <div style={{...styles.column}}>
-                        <Logo />
-                    </div>
+        setMenuOpen = (menuOpen:boolean) => {
+            this.setState({menuOpen});
+        }
 
-                    <div style={{...styles.column}}>
-                        <Menu>
-                            <MenuItem>Home</MenuItem>
-                            <MenuItem>About</MenuItem>
-                            <MenuItem>Playground</MenuItem>
+        toggleMenuOpen = () => {
+            this.setState({menuOpen:!this.state.menuOpen});
+        }
+
+        render(){
+            return (
+                <div>
+                    <div id='heading' className={styles.flexGrid + ' ' + styles.heading}>
+        
+
+                        <Logo onClick={()=>this.props.history.push('/')} />
+
+                        <Menu open={this.state.menuOpen} >
+                            <MenuItem onClick={()=>{this.props.history.push('/')}}>Home</MenuItem>
+                            <MenuItem onClick={()=>{this.props.history.push('About')}}>About</MenuItem>
+                            <MenuItem onClick={()=>{this.props.history.push('Playground')}}>Playground</MenuItem>
                         </Menu>
-                        {/* <Menu>
-                            <MenuItem>Home</MenuItem>
-                            <MenuItem>About</MenuItem>
-                            <MenuItem>Playground</MenuItem>
-                        </Menu> */}
+                        
+                        <MobileMenu onClick={this.toggleMenuOpen} open={this.state.menuOpen} />
+
                     </div>
+
+                    <div id="content" className={styles.flexGrid + " " + styles.content}>
                     
-                    {/* <MobileMenu /> */}
-
+                        <ChildComponent />
+                    
+                    </div>
                 </div>
-
-                <div id="content" style={{...styles.flexGrid}}>
-                
-                    <ChildComponent />
-                
-                </div>
-            </div>
-        );
+            );
+        }
     }
 }

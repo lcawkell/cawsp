@@ -1,0 +1,14 @@
+.logo {
+    font-family: 'Indie Flower';
+    font-size: 2.5em;
+    width: auto;
+    display: inline-block;
+    user-select: none;
+    border: 0px solid red;
+    margin: 5px 10px;
+    cursor: pointer;
+}
+
+.logo:hover {
+    color:red;
+}

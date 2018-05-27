@@ -1,0 +1,57 @@
+.mobileMenu {
+    display: none;
+    position: absolute;
+    top: 30%;
+    right: 15px;
+    width: 40px;
+    height: 26px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.arms {
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #fff;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.arm1 {
+    top: 0px;
+}
+  
+.arm2, .arm3 {
+    top: 10px;
+}
+  
+.arm4 {
+    top: 20px;
+}
+
+.arm1Open, .arm4Open {
+    width: 0px;
+    top: 10px;
+    left: 50%;
+}
+
+.arm2Open {
+    transform: rotate(45deg);
+}
+
+.arm3Open {
+    transform: rotate(-45deg);
+}
+
+@media(max-width: 650px) {
+
+    .mobileMenu {
+        display: inline-block;
+    }
+
+}
