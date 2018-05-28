@@ -22,7 +22,7 @@ const PlaygroundApp = createFactory(Playground);
 fs.readFile(filePath, 'utf8', (err:any, htmlData:any) => {
     if (err) {
       console.error('err', err);
-      //return res.status(404).end()
+      //return res.status(404).end() 
     }
 
     const homeRendered = ReactDOMServer.renderToString(HomeApp());
