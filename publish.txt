@@ -1,0 +1,2 @@
+killing current node process:
+sudo killall -9 node
