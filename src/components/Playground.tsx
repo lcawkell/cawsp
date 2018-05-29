@@ -4,6 +4,9 @@ import Layout from '../components/Layout';
 // Playground components
 import Letter from './Letter';
 import WordScramble from './WordScramble';
+import Icon from './Icon';
+import Checkbox from './Checkbox';
+import Link from './Link';
 
 export interface PlaygroundProps {
 }
@@ -27,10 +30,10 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
         return (
             <div>
                 <h1>Component Playground</h1>
-                hello
-                {this.isClientOrServer()}
+                Server rendered or client rendered? <Link>{this.isClientOrServer()}</Link>
                 <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
-                    <WordScramble>Cawsp</WordScramble>
+                    <Checkbox>Check me to win <Icon icon="spinner" size="small" color="green" rotate /></Checkbox>
+                    
                 </div>
             </div>
         );
