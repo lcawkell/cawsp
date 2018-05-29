@@ -19,10 +19,16 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
         }
     }
 
+    isClientOrServer = () => {
+        return (typeof window !== 'undefined' && window.document) ? 'client' : 'server';
+      };
+
     render() {
         return (
             <div>
                 <h1>Component Playground</h1>
+                hello
+                {this.isClientOrServer()}
                 <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
                     <WordScramble>Cawsp</WordScramble>
                 </div>

@@ -11,6 +11,23 @@
     color: #fff;
 }
 
+.flexHeading {
+    display: flex;
+    border: 0px solid blue;
+    justify-content: space-between;
+    border-bottom: 2px solid #fff;
+    position: relative;
+    background: #000;
+    color: #fff;
+}
+
+.flexContent {
+    display: flex;
+    border: 0px solid blue;
+    justify-content: space-between;
+    margin: 15px;
+}
+
 .content {
     margin: 15px;
 }

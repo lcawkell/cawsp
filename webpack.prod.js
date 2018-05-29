@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, '../JScripts')
+        path: path.resolve(__dirname, 'dist')
     },
     devtool:'source-map',
 

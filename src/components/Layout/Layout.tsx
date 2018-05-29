@@ -32,7 +32,7 @@ export default function Layout(ChildComponent:any){
         render(){
             return (
                 <div>
-                    <div id='heading' className={styles.flexGrid + ' ' + styles.heading}>
+                    <div id='heading' className={styles.flexHeading}>
         
 
                         <Logo onClick={()=>this.props.history.push('/')} />
@@ -47,7 +47,7 @@ export default function Layout(ChildComponent:any){
 
                     </div>
 
-                    <div id="content" className={styles.flexGrid + " " + styles.content}>
+                    <div id="content" className={styles.flexContent}>
                     
                         <ChildComponent />
                     

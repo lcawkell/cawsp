@@ -6,14 +6,18 @@ import { createFactory } from 'react';
 import Home from './components/Home';
 import About from './components/About';
 import Playground from './components/Playground';
+import { Router } from './Router';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const filePath = path.resolve(__dirname, "..", "dist", 'index.html');
+console.log(__dirname);
+
+const filePath = path.resolve(__dirname, '..', 'index.html');
 
 let homeHtml = '';
 let aboutHtml = '';
 let playgroundHtml = '';
+let htmlDataA = "";
 
 const HomeApp = createFactory(Home);
 const AboutApp = createFactory(About);
@@ -25,6 +29,7 @@ fs.readFile(filePath, 'utf8', (err:any, htmlData:any) => {
       //return res.status(404).end() 
     }
 
+    htmlDataA = htmlData;
     const homeRendered = ReactDOMServer.renderToString(HomeApp());
     const aboutRendered = ReactDOMServer.renderToString(AboutApp());
     const playgroundRendered = ReactDOMServer.renderToString(PlaygroundApp());
@@ -35,19 +40,19 @@ fs.readFile(filePath, 'utf8', (err:any, htmlData:any) => {
     // sendhtml = htmlData;
   });
 
-app.use('/scripts', express.static(path.join(__dirname, "..", "dist", "scripts")));
-app.use('/styles', express.static(path.join(__dirname, "..", "dist", "styles")));
+app.use('/scripts', express.static(path.join(__dirname, "..", "scripts")));
+app.use('/styles', express.static(path.join(__dirname, "..", "styles")));
 
 app.get('/About', (req, res) => {
-    res.send(aboutHtml);
+    res.send(htmlDataA);
 });
 
 app.get('/Playground', (req, res) => {
-    res.send(playgroundHtml);
+    res.send(htmlDataA);
 });
 
 app.get('/', (req, res) => {
-    res.send(homeHtml);
+    res.send(htmlDataA);
 });
 
 app.listen(80, ()=> console.log("cawsp server running on 80"));

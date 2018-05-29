@@ -30,20 +30,19 @@ module.exports =
                     exclude: [/node_modules/,nodeModulesPath]
                 },
                 {
-                // Style loader for CSS files (splitting into modules)
                     test: /\.css$/,
-                    use: [
-                        'style-loader',
-                        {
-                            loader: 'typings-for-css-modules-loader',
-                            options: {
-                                modules: true,
-                                namedExport: true,
-                                localIdentName: '[name]__[local]--[hash:base64:5]'
-                            }
-                        }
-                    ],
-                }              
+                    loader: 'style-loader',
+                    exclude: [/node_modules/,nodeModulesPath]
+                }, 
+                {
+                    test: /\.css$/,
+                    loader: 'css-loader',
+                    exclude: [/node_modules/,nodeModulesPath],
+                    query: {
+                        modules: true,
+                        localIdentName: '[name]__[local]___[hash:base64:5]'
+                    }
+                }            
             ]
         },
 
