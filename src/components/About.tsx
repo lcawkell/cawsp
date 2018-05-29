@@ -18,7 +18,7 @@ class About extends React.Component<AboutProps, AboutState> {
     render() {
         return (
             <div>
-                About page
+                About page (quick test!)
             </div>
         );
     }
