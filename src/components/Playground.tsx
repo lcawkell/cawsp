@@ -8,6 +8,9 @@ import Icon from './Icon';
 import Checkbox from './Checkbox';
 import Link from './Link';
 
+import { TableRow } from './Table/TableRow';
+import { TableCell } from './Table/TableCell';
+
 export interface PlaygroundProps {
 }
 
@@ -33,7 +36,14 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
                 Server rendered or client rendered? <Link>{this.isClientOrServer()}</Link>
                 <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
                     <Checkbox>Check me to win <Icon icon="spinner" size="small" color="green" rotate /></Checkbox>
-                    
+                    <table>
+                        <tbody>
+                            <TableRow id="Row1">
+                                <TableCell>t</TableCell>
+                                <TableCell>t</TableCell>
+                            </TableRow>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         );

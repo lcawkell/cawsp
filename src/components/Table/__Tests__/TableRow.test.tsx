@@ -32,8 +32,8 @@ beforeEach(()=>{
         <table>
             <tbody>
                 <TableRow id="Row1">
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>test1</TableCell>
+                    <TableCell>test2</TableCell>
                 </TableRow>
             </tbody>
         </table>
@@ -49,7 +49,7 @@ describe('TableRow', ()=>{
     describe('The table row', ()=>{
 
         it('Contains a number of data elements equal to the number of columns + a selection row', ()=>{
-            expect(control.find('tr').find('td').length).toBe(columns.length+1);
+            expect(control.find('tr').find('td').length).toBe(columns.length);
         });
 
     });
