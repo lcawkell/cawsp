@@ -10,6 +10,7 @@ import Link from './Link';
 
 import { TableRow } from './Table/TableRow';
 import { TableCell } from './Table/TableCell';
+import Overlay from './Overlay';
 
 export interface PlaygroundProps {
 }
@@ -37,6 +38,7 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
                 <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
                     <Checkbox>Check me to win <Icon icon="spinner" size="small" color="green" rotate /></Checkbox>
                 </div>
+                <Overlay visible />
             </div>
         );
     }
