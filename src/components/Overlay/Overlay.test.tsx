@@ -16,7 +16,7 @@ beforeEach(()=>{
 describe('Overlay', ()=>{
 
     it('Renders a containing div', ()=>{
-        expect(control.find('div').length).toBe(1);
+        expect(control.find('div.overlay-parent').length).toBe(1);
     })
 
 });

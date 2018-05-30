@@ -31,7 +31,7 @@ export default function Overlay (props: OverlayProps) {
     }
 
     return (
-        <div className={styles.root} style={{...inlineStyles}} onClick={onClick} onTransitionEnd={transitionEnd}>
+        <div className={'overlay-parent ' + styles.root} style={{...inlineStyles}} onClick={onClick} onTransitionEnd={transitionEnd}>
             <div className={styles.content} onClick={contentClick}>
                 {props.children}
             </div>
