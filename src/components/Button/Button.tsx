@@ -218,6 +218,17 @@ export class IconButton extends React.Component<IconButtonProps, IconButtonState
 
     componentDidMount(){
 
+        this.getButtonPosition();
+
+    }
+
+    componentWillReceiveProps(){
+        if(this.state.position.x <= 0 && this.state.position.y <= 0) {
+            this.getButtonPosition();
+        }
+    }
+
+    getButtonPosition = () => {
         let iconButtonPosition = {y:0, x:0, height:0, width: 0};
         let iconButtonContainerPosition = {y:0, x:0, height:0, width:0};
 
@@ -282,8 +293,8 @@ export class IconButton extends React.Component<IconButtonProps, IconButtonState
         });
 
         return (
-            <span style={{position: 'relative'}} ref={this.setButtonContainerRef}>
-                <Button styles={styles} active={this.props.active} onClick={this.onClick} buttonRef={el => this.iconButtonElement = el}>{this.props.children}</Button>
+            <span style={{position: 'relative', cursor:'pointer'}} ref={this.setButtonContainerRef} onClick={this.onClick}>
+                <Button styles={styles} active={this.props.active} buttonRef={el => this.iconButtonElement = el}>{this.props.children}</Button>
                 {Ripples}
             </span>
         );

@@ -10,7 +10,7 @@ Enzyme.configure({adapter:new EnzymeAdapter()})
 
 let control:ShallowWrapper<undefined, undefined>;
 beforeEach(()=>{
-    control = shallow(<Overlay />);
+    control = shallow(<Overlay visible={true} onClose={()=>{}} />);
 });
 
 describe('Overlay', ()=>{

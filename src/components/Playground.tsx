@@ -11,7 +11,7 @@ import Link from './Link';
 import { TableRow } from './Table/TableRow';
 import { TableCell } from './Table/TableCell';
 import Overlay from './Overlay';
-import { ActionButton, Button, ButtonContent } from './Button';
+import { ActionButton, Button, ButtonContent, IconButton } from './Button';
 
 export interface PlaygroundProps {
 }
@@ -35,22 +35,7 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
         return (typeof window !== 'undefined' && window.document) ? 'client' : 'server';
       };
 
-    setOverlayInvisible = () => {
-        this.setState({overlay: false});
-    }
 
-    setOverlayRemoved = (visibleWhenStarted:boolean) => {
-        if(visibleWhenStarted) this.setState({removed: true});
-    }
-    
-    setOverlayVisible = () => {
-        this.setState({removed:false}, ()=>{
-            setTimeout(()=>{
-                this.setState({overlay: true});
-            }, 50);
-
-        });
-    }
 
     render() {
         return (
@@ -58,11 +43,12 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
                 <h1>Component Playground</h1>
                 Server rendered or client rendered? <Link>{this.isClientOrServer()}</Link>
                 <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
-                    <Checkbox checked={this.state.overlay} onChange={this.setOverlayVisible}>Check me to win <Icon icon="check" size="small" color="green" /></Checkbox>
+                    <Checkbox checked={this.state.overlay} onChange={()=>this.setState({overlay:true})}>Check me to win <Icon icon="check" size="small" color="green" /></Checkbox>
                 </div>
-                <Overlay visible={this.state.overlay} removed={this.state.removed} onClick={this.setOverlayInvisible} onTransitionEnd={(visibleWhenStarted)=>this.setOverlayRemoved(visibleWhenStarted)}>
+                <Overlay visible={this.state.overlay} onClose={()=>this.setState({overlay:false})}>
                     <h3>You win!</h3>
                     <Checkbox inverse>I agree</Checkbox>
+                    <IconButton onClick={()=>{}}><Icon icon="plus" size="large" color="#fff" /></IconButton>
                 </Overlay>
             </div>
         );
