@@ -199,10 +199,10 @@ interface IconButtonState {
     children?:any
 }
 
-let iconButtonElement;
-let iconButtonContainerElement;
 
 export class IconButton extends React.Component<IconButtonProps, IconButtonState> {
+    private iconButtonElement:any;
+    private iconButtonContainerElement:any;
 
     constructor(props:IconButtonProps){
         super(props);
@@ -222,8 +222,8 @@ export class IconButton extends React.Component<IconButtonProps, IconButtonState
         let iconButtonContainerPosition = {y:0, x:0, height:0, width:0};
 
 
-        iconButtonPosition = iconButtonElement.getBoundingClientRect();
-        iconButtonContainerPosition = iconButtonContainerElement.getBoundingClientRect();        
+        iconButtonPosition = this.iconButtonElement.getBoundingClientRect();
+        iconButtonContainerPosition = this.iconButtonContainerElement.getBoundingClientRect();        
 
 
         //console.log(iconButtonPosition.x-iconButtonContainerPosition.x)
@@ -257,7 +257,7 @@ export class IconButton extends React.Component<IconButtonProps, IconButtonState
     }
 
     setButtonContainerRef = element => {
-        iconButtonContainerElement = element;
+        this.iconButtonContainerElement = element;
     };
 
     render(){
@@ -283,7 +283,7 @@ export class IconButton extends React.Component<IconButtonProps, IconButtonState
 
         return (
             <span style={{position: 'relative'}} ref={this.setButtonContainerRef}>
-                <Button styles={styles} active={this.props.active} onClick={this.onClick} buttonRef={el => iconButtonElement = el}>{this.props.children}</Button>
+                <Button styles={styles} active={this.props.active} onClick={this.onClick} buttonRef={el => this.iconButtonElement = el}>{this.props.children}</Button>
                 {Ripples}
             </span>
         );

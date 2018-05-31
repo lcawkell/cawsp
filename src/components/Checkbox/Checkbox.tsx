@@ -12,6 +12,10 @@ let checkedIcon = {
     viewBox: '0 0 448 512'
 }
 
+export interface test {
+    bar?:string
+}
+
 export interface CheckboxProps {
     checked?: boolean,
     onChange?: (checked:boolean) => void,
@@ -27,10 +31,11 @@ export interface CheckboxState {
     ripple: {left: number, top:number}[]
 }
 
-let checkboxElement;
-let checkboxContainerElement;
 
 export default class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
+    private checkboxElement: any;
+    private checkboxContainerElement: any;
+
     constructor(props: CheckboxProps) {
         super(props);
 
@@ -42,17 +47,34 @@ export default class Checkbox extends React.Component<CheckboxProps, CheckboxSta
             },
             ripple: []
         }
+        
     }
 
     componentDidMount(){
 
+        this.getCheckboxPosition();
+
+    }
+
+    componentWillReceiveProps(){
+        if(this.state.position.x <= 0 && this.state.position.y <= 0){
+            this.getCheckboxPosition();
+        }
+    }
+
+    setCheckboxContainerRef = element => {
+        this.checkboxContainerElement = element;
+    };
+
+    getCheckboxPosition = () => {
         let checkboxPosition = {y:0, x:0, height:0, width: 0};
         let checkboxContainerPosition = {y:0, x:0, height:0, width:0};
 
 
-        checkboxPosition = checkboxElement.getBoundingClientRect();
-        checkboxContainerPosition = checkboxContainerElement.getBoundingClientRect();        
-
+        checkboxPosition = this.checkboxElement.getBoundingClientRect();
+        console.log(this.checkboxElement);
+        checkboxContainerPosition = this.checkboxContainerElement.getBoundingClientRect();        
+        console.log(this.checkboxContainerElement);
 
         //console.log(checkboxPosition.x-checkboxContainerPosition.x)
 
@@ -63,10 +85,6 @@ export default class Checkbox extends React.Component<CheckboxProps, CheckboxSta
             }
         });
     }
-
-    setCheckboxContainerRef = element => {
-        checkboxContainerElement = element;
-    };
 
     onClick = (event)=>{
         if(!this.props.disabled) {
@@ -136,7 +154,7 @@ export default class Checkbox extends React.Component<CheckboxProps, CheckboxSta
 
         return (
             <span style={{...styles.root}} onClick={this.onClick} ref={this.setCheckboxContainerRef} >
-                <Icon icon={iconType} iconRef={el => checkboxElement = el} color={color} size={iconSize} />
+                <Icon icon={iconType} iconRef={el => this.checkboxElement = el} color={color} size={iconSize} />
                 <span style={{...styles.label}}>{content}</span>
                 {Ripples}
             </span>

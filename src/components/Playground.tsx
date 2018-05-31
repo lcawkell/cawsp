@@ -11,6 +11,7 @@ import Link from './Link';
 import { TableRow } from './Table/TableRow';
 import { TableCell } from './Table/TableCell';
 import Overlay from './Overlay';
+import { ActionButton, Button, ButtonContent } from './Button';
 
 export interface PlaygroundProps {
 }
@@ -46,7 +47,7 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
         this.setState({removed:false}, ()=>{
             setTimeout(()=>{
                 this.setState({overlay: true});
-            }, 300);
+            }, 50);
 
         });
     }
@@ -57,10 +58,11 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
                 <h1>Component Playground</h1>
                 Server rendered or client rendered? <Link>{this.isClientOrServer()}</Link>
                 <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
-                    <Checkbox checked={this.state.overlay} onChange={this.setOverlayVisible}>Check me to win <Icon icon="spinner" size="small" color="green" rotate /></Checkbox>
+                    <Checkbox checked={this.state.overlay} onChange={this.setOverlayVisible}>Check me to win <Icon icon="check" size="small" color="green" /></Checkbox>
                 </div>
                 <Overlay visible={this.state.overlay} removed={this.state.removed} onClick={this.setOverlayInvisible} onTransitionEnd={(visibleWhenStarted)=>this.setOverlayRemoved(visibleWhenStarted)}>
-                    You win!
+                    <h3>You win!</h3>
+                    <Checkbox inverse>I agree</Checkbox>
                 </Overlay>
             </div>
         );

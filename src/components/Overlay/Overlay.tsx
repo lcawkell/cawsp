@@ -11,11 +11,8 @@ export interface OverlayProps {
 
 export default function Overlay (props: OverlayProps) {
 
-    let inlineStyles = {
-        opacity: props.visible ? 1 : 0,
-        display: props.removed ? 'none' : 'initial',
-        visibility: props.removed ? 'hidden' as 'hidden' : 'visible' as 'visible'
-    }
+    let activeClass = props.visible ? styles.rootActive : '';
+    let hiddenClass = props.removed ? styles.rootHidden : '';
 
     function onClick () {
         props.onClick && props.onClick();
@@ -31,7 +28,7 @@ export default function Overlay (props: OverlayProps) {
     }
 
     return (
-        <div className={'overlay-parent ' + styles.root} style={{...inlineStyles}} onClick={onClick} onTransitionEnd={transitionEnd}>
+        <div className={'overlay-parent ' + styles.root + ' ' + activeClass + ' ' + hiddenClass} onClick={onClick} onTransitionEnd={transitionEnd}>
             <div className={styles.content} onClick={contentClick}>
                 {props.children}
             </div>
