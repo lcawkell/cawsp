@@ -15,4 +15,8 @@ beforeEach(()=>{
 
 describe('Toggle', ()=>{
 
+    it('renders a containing div', ()=>{
+        expect(control.find('div.ToggleContainer').length).toBe(1);
+    });
+
 });

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
+import { mount, shallow, ShallowWrapper } from 'enzyme';
 
 import Overlay from './Overlay';
 
@@ -8,15 +8,15 @@ import * as EnzymeAdapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({adapter:new EnzymeAdapter()})
 
-let control:ShallowWrapper<undefined, undefined>;
+let control;
 beforeEach(()=>{
-    control = shallow(<Overlay visible={true} onClose={()=>{}} />);
+    control = mount(<Overlay visible={true} onClose={()=>{}}>test</Overlay>);
 });
 
 describe('Overlay', ()=>{
 
     it('Renders a containing div', ()=>{
-        expect(control.find('div.overlay-parent').length).toBe(1);
+        expect(control.find('div').length).toBeGreaterThan(1);
     })
 
 });
