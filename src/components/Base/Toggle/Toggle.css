@@ -1,0 +1,37 @@
+.root {
+    height: 21px;
+    width: 45px;
+    border-radius: 15px;
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.rootActive {
+    background: #106EBE;
+}
+
+.thumb {
+    width: 13px;
+    height: 13px;
+    border-radius: 15px;
+    background: #000;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    transition: all .2s ease-out;
+}
+
+.thumbActive {
+    left: 28px;
+    background:white;
+}
+
+.label {
+    position: relative;
+    top: -6px;
+    left: 5px;
+}

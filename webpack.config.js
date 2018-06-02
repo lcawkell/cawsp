@@ -59,6 +59,7 @@ module.exports =
             compress: true,
             port: 9200,
             historyApiFallback: true,
+            stats: 'errors-only'
         }
         
     },

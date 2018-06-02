@@ -72,11 +72,7 @@ export default class Checkbox extends React.Component<CheckboxProps, CheckboxSta
 
 
         checkboxPosition = this.checkboxElement.getBoundingClientRect();
-        console.log(this.checkboxElement);
         checkboxContainerPosition = this.checkboxContainerElement.getBoundingClientRect();        
-        console.log(this.checkboxContainerElement);
-
-        //console.log(checkboxPosition.x-checkboxContainerPosition.x)
 
         this.setState({
             position: {

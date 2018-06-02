@@ -3,8 +3,9 @@ import * as styles from './Chip.css';
 import Icon, { IIconStyles } from '../Icon';
 
 export interface ChipProps {
-    children?:any,
-    onDelete?: ()=>void
+    label?:string,
+    onDelete?: () => void,
+    onClick?: () => void
 }
 
 export default function Chip (props: ChipProps) {
@@ -14,8 +15,13 @@ export default function Chip (props: ChipProps) {
         viewBox: '0 0 320 512'
     }
 
-    let onClick = () => {
-        props.onDelete !== undefined && props.onDelete();
+    let onClick = (event:any) => {
+        props.onClick();
+    }
+
+    let onDelete = (event:any) => {
+        props.onDelete();
+        event.stopPropagation();
     }
 
     let iconStyles:IIconStyles = {
@@ -30,10 +36,14 @@ export default function Chip (props: ChipProps) {
         }
     }
 
+    let deleteIcon = props.onDelete && <span className={styles.deleteIcon} onClick={onDelete}><Icon icon={icon} size='small' /></span>
+    let clickableStyle = props.onClick && styles.clickable;
+
+    let rootStyles = [styles.root, clickableStyle].join(' ');
+
     return (
-      <div className={styles.root}>
-        <span className={styles.actions + ' noFocus'} onClick={onClick}><Icon icon={icon} size="tiny" styles={iconStyles} /></span>
-        <span className={styles.text + ' noBlur'}>{props.children}</span>
-      </div>
+        <div className={rootStyles} onClick={onClick}>
+            <span className={styles.text}>{props.label}</span>{deleteIcon}
+        </div>
     );
 }

@@ -81,7 +81,6 @@ export default class Icon extends React.Component<IconProps, IconState> {
                 height:height,
                 width:'auto',
                 strokeWidth: 3,
-                fill: '#000',
                 position: 'relative' as 'relative',
                 top: '1px'
             }
