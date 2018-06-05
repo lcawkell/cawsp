@@ -16,7 +16,7 @@ beforeEach(()=>{
 describe('Example', ()=>{
 
     it('Renders a container div', ()=>{
-        expect(control.find('div').length).toBeGreaterThan(1);
+        expect(control.find('div').length).toBeGreaterThanOrEqual(1);
     });
 
 });
