@@ -12,6 +12,7 @@
 
 .rootActive {
     background: #106EBE;
+    border: 1px solid #106EBE;
 }
 
 .thumb {

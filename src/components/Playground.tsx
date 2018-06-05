@@ -31,7 +31,7 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
         this.state = {
             overlay:false,
             removed:true,
-            toggleActive:false
+            toggleActive:true
         }
     }
 
