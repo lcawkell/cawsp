@@ -14,13 +14,14 @@ import Overlay from './Base/Overlay';
 import { ActionButton, Button, ButtonContent, IconButton } from './Base/Button';
 import Chip from './Base/Chip';
 import Toggle from './Base/Toggle';
+import Example, { Demo } from './Example';
+import { Code } from './Example/Code';
 
 export interface PlaygroundProps {
 }
 
 export interface PlaygroundState {
     overlay:boolean,
-    removed:boolean,
     toggleActive:boolean
 }
 
@@ -30,8 +31,7 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
 
         this.state = {
             overlay:false,
-            removed:true,
-            toggleActive:true
+            toggleActive:false
         }
     }
 
@@ -49,20 +49,31 @@ class Playground extends React.Component<PlaygroundProps, PlaygroundState> {
                 <h1>Component Playground</h1>
                 Server rendered or client rendered? <Link>{this.isClientOrServer()}</Link>
 
-                <br/>
+                <br/> <br/>
 
                 <div>
-                    <Chip label="Clickable Chip" onDelete={()=>{alert('You clicked delete!')}} onClick={()=>{alert('You clicked the chip')}} />
+                    <Chip label="Clickable Chip" onDelete={()=>this.setState({overlay:true})} onClick={()=>{alert('You clicked the chip')}} />
                 </div>
 
                 <br/>
 
                 <div>
-                    <Toggle active={this.state.toggleActive} onClick={this.setActive} />
+                    {/* <Toggle active={this.state.overlay} onClick={()=>this.setState({overlay:true})} onLabel='You win!' offLabel='Toggle to win' /> */}
                 </div>
 
-                <div style={{fontFamily:'Indie Flower', fontSize:'50px', margin:'50px'}}>
-                    <Checkbox checked={this.state.overlay} onChange={()=>this.setState({overlay:true})}>Check me to win <Icon icon="check" size="small" color="green" /></Checkbox>
+                <br/>
+
+                <div>
+                    <Checkbox checked={this.state.toggleActive} onChange={this.setActive}>Check me to win <Icon icon="check" size="small" color="green" /></Checkbox>
+                </div>
+
+                <br/>
+
+                <div>
+                    <Example>
+                        <Code />
+                        <Demo />
+                    </Example>
                 </div>
                 <Overlay visible={this.state.overlay} onClose={()=>this.setState({overlay:false})}>
                     <h3>You win!</h3>

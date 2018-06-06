@@ -17,7 +17,7 @@ export default class Example extends React.Component<ExampleProps, ExampleState>
   render() {
     return (
       <div>
-        
+        {this.props.children}
       </div>
     );
   }
