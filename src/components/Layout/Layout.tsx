@@ -34,6 +34,7 @@ export default function Layout(ChildComponent:any){
                 <div>
                     <div id='heading' className={styles.flexHeading}>
         
+                        <MobileMenu onClick={this.toggleMenuOpen} open={this.state.menuOpen} />
 
                         <Logo onClick={()=>this.props.history.push('/')} />
 
@@ -43,8 +44,6 @@ export default function Layout(ChildComponent:any){
                             <MenuItem onClick={()=>{this.props.history.push('Playground')}}>Playground</MenuItem>
                         </Menu>
                         
-                        <MobileMenu onClick={this.toggleMenuOpen} open={this.state.menuOpen} />
-
                     </div>
 
                     <div id="content" className={styles.flexContent}>
