@@ -5,8 +5,8 @@ export interface CodeProps {
 
 export function Code (props: CodeProps) {
     return (
-      <div>
-        Code
-      </div>
+        <div>
+            Code
+        </div>
     );
 }

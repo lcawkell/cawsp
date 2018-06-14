@@ -1,6 +1,9 @@
 var history = require('connect-history-api-fallback');
+var compression = require('compression');
 const express = require('express');
 const app = express();
+app.use(compression());
+
 import * as ReactDOMServer from 'react-dom/server';
 import { createFactory } from 'react';
 import Home from './components/Home';
