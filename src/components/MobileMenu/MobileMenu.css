@@ -48,7 +48,7 @@
     transform: rotate(-45deg);
 }
 
-@media(max-width: 650px) {
+@media(max-width: 550px) {
 
     .mobileMenu {
         display: inline-block;

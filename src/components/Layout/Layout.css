@@ -33,7 +33,7 @@
 }
 
 
-@media(max-width: 650px) {
+@media(max-width: 550px) {
 
     .flexGrid {
         display: block;
