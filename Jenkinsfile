@@ -1,6 +1,5 @@
 node {
     stage('Checkout code') {
-    
         git branch: 'master', url: 'https://github.com/lcawkell/cawsp.git'
     }
     stage('Install Dependencies') {
