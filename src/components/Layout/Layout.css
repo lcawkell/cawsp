@@ -9,6 +9,7 @@
     position: relative;
     background: #2f2f2f;
     color: #fff;
+    height: 60px;
 }
 
 .flexHeading {
@@ -19,6 +20,7 @@
     position: relative;
     background: #2f2f2f;
     color: #fff;
+    height: 60px;
 }
 
 .flexContent {
@@ -37,8 +39,11 @@
 
     .flexGrid {
         display: block;
+
     }
 
-
+    .flexHeading {
+        justify-content: center;
+    }
 
 }

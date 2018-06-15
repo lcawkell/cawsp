@@ -26,6 +26,6 @@ export default function Menu (props: MenuProps) {
 
 export function MenuItem (props: MenuItemProps) {
     return (
-        <li className={styles.menuItem}><a className={styles.menuItemLink} href={props.link} onClick={props.onClick}>{props.children}</a></li>
+        <li className={styles.menuItem} onClick={props.onClick}><a className={styles.menuItemLink} href={props.link}>{props.children}</a></li>
     );
 }
